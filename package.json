@@ -1,5 +1,5 @@
 {
-  "name": "sequelize-typescript",
+  "name": "@ohanapediatrics/sequelize-typescript",
   "version": "0.6.11",
   "description": "Decorators and some other features for sequelize (v3, v4, v5)",
   "scripts": {
@@ -43,9 +43,6 @@
   "main": "index.js",
   "types": "index.d.ts",
   "dependencies": {
-    "@types/bluebird": "3.5.26",
-    "@types/node": "11.12.2",
-    "@types/sequelize": "4.28.1",
     "es6-shim": "0.35.3",
     "glob": "7.1.2"
   },
@@ -58,6 +55,8 @@
     "@types/prettyjson": "0.0.28",
     "@types/sinon": "1.16.35",
     "@types/sinon-chai": "2.7.27",
+    "@types/node": "11.12.2",
+    "@types/sequelize": "4.28.1",
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
     "chai-datetime": "1.4.1",
@@ -81,10 +80,12 @@
     "uuid-validate": "0.0.2"
   },
   "peerDependencies": {
-    "reflect-metadata": ">=0.1.9"
+    "reflect-metadata": ">=0.1.9",
+    "@types/node": "11.12.2",
+    "@types/sequelize": "4.28.1"
   },
   "engines": {
-    "node": ">=0.8.15"
+    "node": ">=10.0.0"
   },
   "nyc": {
     "lines": 85,

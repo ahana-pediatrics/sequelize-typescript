@@ -5,7 +5,6 @@ import {useFakeTimers, stub, spy} from 'sinon';
 import * as sinonChai from 'sinon-chai';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import * as Promise from 'bluebird';
 import {UniqueConstraintError} from 'sequelize';
 import * as chaiAsPromised from 'chai-as-promised';
 import {createSequelize} from "../utils/sequelize";
@@ -442,7 +441,10 @@ describe('model', () => {
         return Promise.all([
           User.create({username: 'tobi', email: 'tobi@tobi.me'}),
           User.create({username: 'tobi', email: 'tobi@tobi.me'})]);
-      }).catch(UniqueConstraintError, (err) => {
+      }).catch((err) => {
+        if (!(err instanceof UniqueConstraintError)) {
+          throw err;
+        }
         expect(err.message).to.equal('User and email must be unique');
       });
     });
@@ -498,7 +500,10 @@ describe('model', () => {
         return Promise.all([
           User.create({user_id: 1, email: 'tobi@tobi.me'}),
           User.create({user_id: 1, email: 'tobi@tobi.me'})]);
-      }).catch(UniqueConstraintError, (err) => {
+      }).catch( (err) => {
+        if (!(err instanceof UniqueConstraintError)) {
+          throw err;
+        }
         expect(err.message).to.equal('User and email must be unique');
       });
     });

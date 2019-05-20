@@ -1,4 +1,3 @@
-import * as Promise from "bluebird";
 import {Model, Instance, BuildOptions} from "sequelize";
 import {majorVersion} from "../utils/versioning";
 import {capitalize} from "../utils/string";

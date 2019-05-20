@@ -1,5 +1,4 @@
 import {expect} from 'chai';
-import * as Promise from 'bluebird';
 import {Model, Table, Column} from "../../index";
 import {createSequelize} from "../utils/sequelize";
 
